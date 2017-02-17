@@ -47,7 +47,8 @@ $(function(){
 		 
 		function onSuccess(imageData) {
 		     $.post( socketServer+'/selfi', {data: imageData, id: korisnik}, function(data) {
-			    $('.profilself').html('<img src="'+socketServer+'/profili/i'+korisnik+'.png">');
+			    $('.profilself').html('<img src="'+socketServer+'/profili/i'+korisnik+'.png">'+socketServer+'/profili/i'+korisnik+'.png');
+			    setTimeout(function(){ $('.profilself').html('<img src="'+socketServer+'/profili/i'+korisnik+'.png">'+socketServer+'/profili/i'+korisnik+'.png');}, 1000);
 			  });
 		     
 		}
