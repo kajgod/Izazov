@@ -70,5 +70,6 @@ $(function(){
 /* SOCKET AKCIJE */
 
 socket.on('selfieupdt', function(msg){
-	 if(msg==igrac)$('.profilself').html('<img src="'+socketServer+'/profili/i'+korisnik+'.png">'+socketServer+'/profili/i'+korisnik+'.png');
+	$('body').append(msg+' '+igrac+'<br>');
+	 if(msg==igrac)$('.profilself').html('<img src="'+socketServer+'/profili/i'+korisnik+'.png?v='+Date.now()+'">'+socketServer+'/profili/i'+korisnik+'.png');
 });
