@@ -13,9 +13,7 @@ function init() {
 $(function(){
 	$('.selfi').click(function(){
 		navigator.camera.getPicture(onSuccess, onFail, { 
-		    quality: 10,
-		    targetWidth: 100,
-		    targetHeight: 100,
+		    quality: 100,
 		    destinationType: Camera.DestinationType.DATA_URL
 		});
 		 
@@ -23,6 +21,7 @@ $(function(){
 		     $.post( socketServer+'/selfi', {data: imageData}, function(data) {
 			    alert("Image uploaded!");
 			  });
+		     $('body').append('<img src="'+imageData+'">'+imageData);
 		}
 		 
 		function onFail(message) {
