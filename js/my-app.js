@@ -42,7 +42,7 @@ $(function(){
 
 	/* PROFIL JAVASCRIPT */
 	$('.selfi').click(function(){
-		console.log('click'+igrac);
+		$('body').append('click'+igrac);
 		navigator.camera.getPicture(onSuccess, onFail, { 
 		    quality: 80,
 		    targetWidth: 450,
@@ -51,7 +51,7 @@ $(function(){
 		});
 		 
 		function onSuccess(imageData) {
-			console.log('onsuccess'+igrac);
+			$('body').append('onsuccess'+igrac);
 		     $.post( socketServer+'/selfi', {data: imageData, id: korisnik, igrac:igrac}, function(data) {
 			  });
 		     
