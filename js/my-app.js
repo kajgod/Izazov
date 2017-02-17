@@ -24,6 +24,8 @@ $(function(){
 	/* RESET JAVASCRIPT */
 
 	function resetall(){
+		$('.profil').hide();
+		$('.ime').val('');
 		$('.profilself').html('');
 		$.getJSON( socketServer+"profili/index.json", function( data ) {
 		  $('body').append(data);
@@ -58,7 +60,6 @@ $(function(){
 		}
 		 
 		function onFail(message) {
-		    alert('Failed because: ' + message);
 		}
 	});
 	$('.submit').click(function(){
@@ -75,3 +76,8 @@ socket.on('selfieupdt', function(msg){
 	$('body').append(msg+' '+igrac+'<br>');
 	 if(msg==igrac)$('.profilself').html('<img src="'+socketServer+'/profili/i'+korisnik+'.png?v='+Date.now()+'">'+socketServer+'/profili/i'+korisnik+'.png');
 });
+
+socket.on('reset', function(msg){
+	resetall();
+});
+
