@@ -34,6 +34,7 @@ $(function(){
 		$('#prviizbor').hide();
 		$('#profil').show();
 		korisnik=Math.ceil(Math.random()*Math.pow(10,16));
+		$('.profilself').html('<img src="'+socketServer+'/profili/i'+korisnik+'.png">'+socketServer+'/profili/i'+korisnik+'.png');
 	});
 
 	/* PROFIL JAVASCRIPT */
@@ -47,8 +48,6 @@ $(function(){
 		 
 		function onSuccess(imageData) {
 		     $.post( socketServer+'/selfi', {data: imageData, id: korisnik}, function(data) {
-			    $('.profilself').html('<img src="'+socketServer+'/profili/i'+korisnik+'.png">'+socketServer+'/profili/i'+korisnik+'.png');
-			    setTimeout(function(){ $('.profilself').html('<img src="'+socketServer+'/profili/i'+korisnik+'.png">'+socketServer+'/profili/i'+korisnik+'.png');}, 1000);
 			  });
 		     
 		}
@@ -57,4 +56,11 @@ $(function(){
 		    alert('Failed because: ' + message);
 		}
 	});
+
+});
+
+/* SOCKET AKCIJE */
+
+socket.on('selfieupdt', function(msg){
+	 $('.profilself').html('<img src="'+socketServer+'/profili/i'+korisnik+'.png">'+socketServer+'/profili/i'+korisnik+'.png');
 });
