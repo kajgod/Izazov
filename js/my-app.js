@@ -6,8 +6,8 @@ var socket = io(socketServer);
 
 function onLoad() {
 	// OVO VRATITI U DEVICEREADY ZA KONAČNU APP!!!
-     //  document.addEventListener("deviceready", init, false);
-     init();
+      document.addEventListener("deviceready", init, false);
+     //init();
    }
 
 function init() {
