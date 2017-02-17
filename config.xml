@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns   = "http://www.w3.org/ns/widgets"
+        xmlns:gap   = "http://phonegap.com/ns/1.0"
+        id          = "com.dedal.kvizApp"
+        version     = "0.0.1" >
+		
+		
+
+    <name>Kviz</name>
+
+    <description>
+      Zabavna aplikacija
+    </description>
+
+    <author href="https://dedal.hr" email="info@dedal.hr">
+        Jurica Starešinčić
+    </author>
+	
+	<gap:plugin name="cordova-plugin-whitelist" version="1.1.0" source="npm" />
+	<allow-navigation href="*" />
+	<allow-intent href="*" />
+	<access origin="*" />
+	<plugin name="cordova-plugin-insomnia" source="npm" />	
+	<plugin name="cordova-plugin-file" source="npm" />	
+	<plugin name="cordova-plugin-file-transfer" source="npm" />	
+	<plugin name="cordova-plugin-inappbrowser" source="npm" />
+	<plugin name="cordova-plugin-keyboard" source="npm" />	
+	<plugin name="cordova-plugin-camera" source="npm" />		
+	<plugin name="cordova-plugin-vibration" source="npm" />		
+	<plugin name="cordova-plugin-media" source="npm" />		
+	<plugin name="cordova-plugin-fileopener" source="npm" />
+	<plugin name="cordova-plugin-fullscreen" source="npm" />
+	
+	<platform name="android" />
+	
+	<preference name="orientation" value="portrait" />
+	<preference name="SplashScreen" value="none"/>
+	
+	<icon src="icon.png" />
+	
+	<meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=no' />
+	<preference name="AllowInlineMediaPlayback" value="true"/>
+	<preference name="KeyboardDisplayRequiresUserAction" value="false"/>
+	<preference name="Fullscreen" value="true" />
+	<preference name="DisallowOverscroll" value="true"/>
+	<preference name="BackgroundColor" value="0xffffffff"/>
+	<preference name="HideKeyboardFormAccessoryBar" value="true"/>
+	<preference name="android-build-tool" value="gradle" />
+	
+	
+	
+
+</widget>
