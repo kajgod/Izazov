@@ -13,7 +13,7 @@ function init() {
 $(function(){
 	$('.selfi').click(function(){
 		navigator.camera.getPicture(onSuccess, onFail, { 
-		    quality: 100,
+		    quality: 20,
 		    destinationType: Camera.DestinationType.DATA_URL
 		});
 		 
