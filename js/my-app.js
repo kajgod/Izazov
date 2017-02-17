@@ -1,3 +1,7 @@
+/* GLOBALNE VARIJABLE */
+
+var korisnik, korisnici;
+
 var socket = io(socketServer);
 
 function onLoad() {
@@ -11,19 +15,41 @@ function init() {
 }
 
 $(function(){
+
+
+
+	/* RESET JAVASCRIPT */
+
+	function resetall(){
+		$('.profilself').html('');
+		$.getJSON( socketServer+"profili/index.json", function( data ) {
+		  $('body').append(data);
+		  korisnici=data;
+		});
+	}
+
+	/* ODABIR JAVASCRIPT */
+
+	$('.novi').click(function(){
+		$('#prviizbor').hide();
+		$('#profil').show();
+		korisnik=Math.ceil(Math.random()*Math.pow(10,16));
+	});
+
+	/* PROFIL JAVASCRIPT */
 	$('.selfi').click(function(){
 		navigator.camera.getPicture(onSuccess, onFail, { 
 		    quality: 80,
-		    targetWidth: 600,
-		    targetHeight: 800,
+		    targetWidth: 450,
+		    targetHeight: 600,
 		    destinationType: Camera.DestinationType.DATA_URL
 		});
 		 
 		function onSuccess(imageData) {
-		     $.post( socketServer+'/selfi', {data: imageData}, function(data) {
-			    alert("Image uploaded!");
+		     $.post( socketServer+'/selfi', {data: imageData, id: korisnik}, function(data) {
+			    $('.profilself').html('<img src="'+socketServer+'/profili/i'+korisnik+'.png">');
 			  });
-		     $('body').append('<img src="data:image/jpeg;charset=utf-8;base64,'+imageData+'">'+imageData);
+		     
 		}
 		 
 		function onFail(message) {
