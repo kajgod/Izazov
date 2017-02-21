@@ -68,6 +68,28 @@ $(function(){
 			  });
 	});
 
+
+	/*PITANJA ODGOVORI*/
+
+	$('.odgovor').click(function(){
+		switch($(this).attr('class')) {
+		    case "odgovor odg1":
+		        odgovaram(1);
+		        break;
+		    case "odgovor odg2":
+		        odgovaram(2);
+		        break;
+		    case "odgovor odg3":
+		        odgovaram(3);
+		        break;
+		    case "odgovor odg4":
+		        odgovaram(4);
+		        break;
+		    default:
+		        return false;
+		}
+	});
+
 });
 
 /* SOCKET AKCIJE */
@@ -81,3 +103,30 @@ socket.on('reset', function(msg){
 	resetall();
 });
 
+socket.on('promijenipitanjetablet', function(msg){
+	promijenipitanje(msg);
+});
+
+socket.on('odbrojavanjetablet', function(msg){
+	$('.odbrojavanje').html(''+msg);
+});
+
+
+/* funkcije */
+function promijenipitanje(objektiv){
+	var pit=objektiv.pitanje, od1=objektiv.odg1, od2=objektiv.odg2, od3=objektiv.odg3, od4=objektiv.odg4;
+	/*exportRoot.pitanje.brojpitanja.text=br+'. pitanje';*/
+	$('.pitanje').html(pit);
+	$('.odg1').html(od1);
+	$('.odg2').html(od2);
+	$('.odg3').html(od3);
+	$('.odg4').html(od4);
+	$('.odbrojavanje').html('');
+	$('.odbrojavanje').hide();
+	/*exportRoot.pitanje.gotoAndPlay(1);
+	aktualnoPitanje++;*/
+}
+
+function odgovaram(x){
+	socket.emit('odgovaram', {igrac:igrac, odgovor:x});
+}
