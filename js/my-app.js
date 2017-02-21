@@ -70,23 +70,26 @@ $(function(){
 
 
 	/*PITANJA ODGOVORI*/
-
+var disejbling=0;
 	$('.odgovor').click(function(){
-		switch($(this).attr('class')) {
-		    case "odgovor odg1":
-		        odgovaram(1);
-		        break;
-		    case "odgovor odg2":
-		        odgovaram(2);
-		        break;
-		    case "odgovor odg3":
-		        odgovaram(3);
-		        break;
-		    case "odgovor odg4":
-		        odgovaram(4);
-		        break;
-		    default:
-		        return false;
+		if(disejbling==0){
+			disejbling=1;
+			switch($(this).data('val')) {
+			    case "1":
+			        odgovaram(1);
+			        break;
+			    case "2":
+			        odgovaram(2);
+			        break;
+			    case "3":
+			        odgovaram(3);
+			        break;
+			    case "4":
+			        odgovaram(4);
+			        break;
+			    default:
+			        return false;
+			}
 		}
 	});
 
@@ -124,6 +127,7 @@ function promijenipitanje(objektiv){
 	$('.odbrojavanje').html('');
 	$('.odbrojavanje').hide();
 	$('.odgovor').show();
+	disejbling=0;
 	/*exportRoot.pitanje.gotoAndPlay(1);
 	aktualnoPitanje++;*/
 }
