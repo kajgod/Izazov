@@ -123,6 +123,7 @@ function promijenipitanje(objektiv){
 	$('.odg4').html(od4);
 	$('.odbrojavanje').html('');
 	$('.odbrojavanje').hide();
+	$('.odgovor').show();
 	/*exportRoot.pitanje.gotoAndPlay(1);
 	aktualnoPitanje++;*/
 }
