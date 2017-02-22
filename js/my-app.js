@@ -1,6 +1,7 @@
 /* GLOBALNE VARIJABLE */
 
-var korisnik, korisnici;
+var korisnik, korisnici, disejbling=0;;
+
 
 var socket = io(socketServer);
 
@@ -70,7 +71,7 @@ $(function(){
 
 
 	/*PITANJA ODGOVORI*/
-var disejbling=0;
+
 	$('.odgovor').click(function(){
 		if(disejbling==0){
 			disejbling=1;
