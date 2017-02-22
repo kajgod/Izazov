@@ -1,4 +1,5 @@
 /* GLOBALNE VARIJABLE */
+$(function(){
 
 var korisnik, korisnici;
 
@@ -70,21 +71,22 @@ $(function(){
 
 
 	/*PITANJA ODGOVORI*/
-var disejbling=0;
-	$('.odgovor').click(function(){
+
+	var disejbling=0;
+	$('.odgovor').click(function(){alert('');
 		if(disejbling==0){
 			disejbling=1;
 			switch($(this).data('val')) {
-			    case "1":
+			    case 1:
 			        odgovaram(1);
 			        break;
-			    case "2":
+			    case 2:
 			        odgovaram(2);
 			        break;
-			    case "3":
+			    case 3:
 			        odgovaram(3);
 			        break;
-			    case "4":
+			    case 4:
 			        odgovaram(4);
 			        break;
 			    default:
@@ -92,7 +94,6 @@ var disejbling=0;
 			}
 		}
 	});
-
 });
 
 /* SOCKET AKCIJE */
@@ -133,5 +134,6 @@ function promijenipitanje(objektiv){
 }
 
 function odgovaram(x){
+	alert(x);
 	socket.emit('odgovaram', {igrac:igrac, odgovor:x});
 }
