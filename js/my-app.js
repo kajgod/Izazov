@@ -1,5 +1,4 @@
 /* GLOBALNE VARIJABLE */
-$(function(){
 
 var korisnik, korisnici;
 
@@ -71,9 +70,8 @@ $(function(){
 
 
 	/*PITANJA ODGOVORI*/
-
-	var disejbling=0;
-	$('.odgovor').click(function(){alert('');
+var disejbling=0;
+	$('.odgovor').click(function(){
 		if(disejbling==0){
 			disejbling=1;
 			switch($(this).data('val')) {
@@ -94,6 +92,7 @@ $(function(){
 			}
 		}
 	});
+
 });
 
 /* SOCKET AKCIJE */
@@ -134,6 +133,5 @@ function promijenipitanje(objektiv){
 }
 
 function odgovaram(x){
-	alert(x);
 	socket.emit('odgovaram', {igrac:igrac, odgovor:x});
 }
