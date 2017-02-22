@@ -112,7 +112,7 @@ socket.on('promijenipitanjetablet', function(msg){
 });
 
 socket.on('odbrojavanjetablet', function(msg){
-	$('.odbrojavanje').html(''+msg);
+	$('.odbrojavanje').html('a'+msg);
 });
 
 
