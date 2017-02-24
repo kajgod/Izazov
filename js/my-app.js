@@ -94,6 +94,11 @@ $(function(){
 		}
 	});
 
+	/* REVANŠ */
+	$('.ponovi').click(function(){
+		socket.emit('revans', true);
+	});
+
 });
 
 /* SOCKET AKCIJE */
@@ -113,6 +118,17 @@ socket.on('promijenipitanjetablet', function(msg){
 
 socket.on('odbrojavanjetablet', function(msg){
 	$('.odbrojavanje').html('a'+msg);
+});
+
+socket.on('pobjednik',function(msg){
+	//igrac:igg, nick:ime[igg]
+	if(msg.igrac==0){
+		alert('nerijeseno');
+	}else if(msg.igrac==tablet){
+		alert('pobjednik');
+	}else{
+		alert('pobjednik');
+	}
 });
 
 
