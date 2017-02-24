@@ -14,7 +14,7 @@ function init() {
 	$.ajaxSetup ({
 		cache: false
 	});
-	$('img.logotip').attr('src',socketServer+'tablet/logotip.png');
+	$('img.logotip').attr('src',socketServer+'/tablet/logotip.png');
 	AndroidFullScreen.immersiveMode(function(){
 			console.log('immersive');
 		}, function(){
