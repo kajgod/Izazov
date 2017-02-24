@@ -99,7 +99,7 @@ $(function(){
 
 	/* REVANŠ */
 	$('.ponovi').click(function(){
-		consle.log('ponovi');
+		alert('');
 		socket.emit('revans', true);
 	});
 
