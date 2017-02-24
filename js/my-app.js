@@ -16,11 +16,14 @@ function init() {
 		cache: false
 	});
 	$('img.logotip').attr('src',socketServer+'tablet/logotip.png');
+	AndroidFullScreen.immersiveMode(function(){
+			console.log('immersive');
+		}, function(){
+			console.log('exit immersive');
+		});
 }
 
 $(function(){
-
-
 
 	/* RESET JAVASCRIPT */
 
@@ -96,6 +99,7 @@ $(function(){
 
 	/* REVANŠ */
 	$('.ponovi').click(function(){
+		consle.log('ponovi');
 		socket.emit('revans', true);
 	});
 
@@ -127,7 +131,7 @@ socket.on('pobjednik',function(msg){
 	}else if(msg.igrac==tablet){
 		alert('pobjednik');
 	}else{
-		alert('pobjednik');
+		alert('luzerska pička');
 	}
 });
 
