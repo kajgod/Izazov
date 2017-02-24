@@ -1,5 +1,5 @@
 /* GLOBALNE VARIJABLE */
-
+alert('');
 var korisnik, korisnici, disejbling=0;;
 
 
@@ -76,6 +76,7 @@ $(function(){
 	/*PITANJA ODGOVORI*/
 
 	$('.odgovor').click(function(){
+		alert('');
 		if(disejbling==0){
 			disejbling=1;
 			switch($(this).data('val')) {
