@@ -49,6 +49,7 @@ $(function(){
 	$('.novi').click(function(){
 		$('#prviizbor').hide();
 		$('#profil').show();
+		$('#profil2').hide();
 		$('input.ime').val('');
 		korisnik=Math.ceil(Math.random()*Math.pow(10,16));
 		$('.profilself').html('<img src="'+socketServer+'/profili/default.png">');
