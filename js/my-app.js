@@ -17,7 +17,7 @@ function init() {
 		cache: false
 	});
 	AndroidFullScreen.immersiveMode(function(){
-		alert($('body').width()+' '+$('body').height());
+		alert($(window).width()+' '+$(window).height());
 		}, function(){
 		});
 	$('img.logotip').attr('src',socketServer+'/tablet/logotip.png');
