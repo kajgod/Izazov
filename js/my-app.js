@@ -17,7 +17,11 @@ function init() {
 		cache: false
 	});
 	AndroidFullScreen.immersiveMode(function(){
-			console.log('immersive');
+			// The width of the screen in immersive mode
+alert(AndroidFullScreen.immersiveWidth());
+
+// The height of the screen in immersive mode
+alert(AndroidFullScreen.immersiveHeight());
 		}, function(){
 			console.log('exit immersive');
 		});
