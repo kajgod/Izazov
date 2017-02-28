@@ -1,8 +1,79 @@
 body {
 	margin:0;
-	padding:0;
-	background-image:url('../images/pozadina.png');
+	padding:24px 0 0 0;
+	background:url('../images/pozadina.png') no-repeat #01355D;
+	position:relative;
+	font-family: Arial, sans-serif;
+	font-size: 1em;
+	width:600px;
+	height:1000px;
+	color:#fff;
+}
+div {
+	border-radius:10px;
 }
 .odgovor {
 	/*display:none;*/
 }
+#sacekivanje, #odabir, #konacnareza{
+	display:none;
+}
+#futer{
+	position:absolute;
+	height:231px;
+	width:600px;
+	left:0px;
+	bottom:20px;
+	background:url('../images/logo.png') no-repeat;
+}
+
+.uvod {
+	margin:180px 30px 30px 30px;
+	padding:30px;
+	font-size:1.2em;
+	background-color:#1f87b5;
+	border:3px solid #00bced;
+}
+
+.novi, .postojeci {
+	margin:30px 30px;
+	padding:30px;
+	font-size:1.2em;
+	background-color:#CE3C31;
+	border:3px solid #DF5F3C;
+	text-align:center;
+}
+
+.novi:active, .postojeci:active {
+	background-color:#F14C23;
+	border-color:#FFFE33;
+}
+
+#profil, #pitanja, #nerijeseno, #profil2 {
+	display:none;
+}
+
+.naslov {
+    position: absolute;
+    top: 150px;
+    left: 60px;
+    background: #0D3C70;
+    padding: 20px;
+    border: 3px solid #00B8E9;
+    font-size: 1.3em;
+}
+
+.profilself {
+	display:block;
+	margin:0 auto;
+	position:relative;
+	width:300px;
+}
+
+.profilself img {
+	width:300px;
+}
+
+.hidpit {display:none;}
+
+.kliknuto {background-color:#ff0000;}

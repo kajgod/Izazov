@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="cz" class="lang">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<!-- <meta http-equiv="Content-Security-Policy" content="deafult-src 'self' 192.168.1.77 192.168.0.14; connect-src ws:; style-src 'self' 192.168.1.77 192.168.0.14; script-src"> -->
+	<meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' 'unsafe-eval'">
+    <title>Izazov</title>
+    <!-- file:///mnt/sdcard/Download/ -->
+	<script type="text/javascript" src="file:///mnt/sdcard/Download/varijable.js"></script>
+	<!-- jebena Cordova -->
+	<script type="text/javascript" src="cordova.js"></script>
+	<!-- CSS -->
+    <link rel="stylesheet" href="css/my-app.css">
+	 <!-- Socket.IO -->
+    <script type="text/javascript" src="js/socket.io.js"></script>
+	<!-- jQuery -->
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+    <!-- aplikacija -->	
+    <script type="text/javascript" src="js/my-app.js"></script>
+	
+	
+
+
+
+  </head>
+  <body onload="onLoad()">
+    <div id="prviizbor">
+      <div class="uvod">
+      <h3>Dobro došli!</h3>
+      Ako ste već igrali Izazov!, ne morate iznova unositi podatke, već je dovoljno odabrati svoj već postojeći profil:</div>
+      <div class="novi">Prvi put igram</div>
+      <div class="postojeci">Već sam igrao</div>
+    </div>
+    <div id="profil">
+      <div class="profilself">
+      </div>
+      <div class="selfi">POSLIKAJ SVOJ SELFI</div>
+      <input type="text" class="ime" placeholder="Upiši ime ili nadimak">
+      <div class="submit">Kreni!</div>
+    </div>
+    <div id="pitanja">
+      <div class="odbrojavanje"></div>
+      <h3 class="pitanje">Pitanje</h3>      
+      <div class="odgovor odg1" data-val="1">Odgovor</div>
+      <div class="odgovor odg2" data-val="2">Odgovor</div>
+      <div class="odgovor odg3" data-val="3">Odgovor</div>
+      <div class="odgovor odg4" data-val="4">Odgovor</div>
+    </div>
+    <div id="nerijeseno">
+      <div class="ponovi">PONOVI</div>
+      <div class="odustani">ODUSTANI</div>
+    </div>
+
+
+<div id="futer">
+</div>
+
+  </body>
+</html>
