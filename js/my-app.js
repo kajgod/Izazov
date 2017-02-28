@@ -17,14 +17,10 @@ function init() {
 		cache: false
 	});
 	AndroidFullScreen.immersiveMode(function(){
-			// The width of the screen in immersive mode
-alert(AndroidFullScreen.immersiveWidth());
-
-// The height of the screen in immersive mode
-alert(AndroidFullScreen.immersiveHeight());
 		}, function(){
-			console.log('exit immersive');
 		});
+	AndroidFullScreen.immersiveWidth( function(v){alert(v);}, function(){});
+	AndroidFullScreen.immersiveHeight( function(v){alert(v);}, function(){});
 	$('img.logotip').attr('src',socketServer+'/tablet/logotip.png');
 	$.getJSON(socketServer+'/profili/index.json', function(vr){
 		$.each(vr, function(key, val){
