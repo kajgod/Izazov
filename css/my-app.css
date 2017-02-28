@@ -1,12 +1,12 @@
 body {
 	margin:0;
-	padding:24px 0 0 0;
+	padding:24px 0 38px 0;
 	background:url('../images/pozadina.png') no-repeat #01355D;
 	position:relative;
 	font-family: Arial, sans-serif;
 	font-size: 1em;
 	width:600px;
-	height:962px;
+	height:900px;
 	color:#fff;
 }
 div {
