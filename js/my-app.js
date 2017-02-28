@@ -17,10 +17,9 @@ function init() {
 		cache: false
 	});
 	AndroidFullScreen.immersiveMode(function(){
+		alert($('body').width()+' '+$('body').height());
 		}, function(){
 		});
-	AndroidFullScreen.immersiveWidth( function(v){alert(v);}, function(){});
-	AndroidFullScreen.immersiveHeight( function(v){alert(v);}, function(){});
 	$('img.logotip').attr('src',socketServer+'/tablet/logotip.png');
 	$.getJSON(socketServer+'/profili/index.json', function(vr){
 		$.each(vr, function(key, val){
