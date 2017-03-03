@@ -1,3 +1,8 @@
+@font-face {
+    font-family: Playbill;
+    src: url('font/playbill.ttf');
+}
+
 body {
 	margin:0;
 	padding:24px 0 38px 0;
@@ -67,13 +72,326 @@ div {
 	display:block;
 	margin:0 auto;
 	position:relative;
-	width:300px;
+	width: 230px;
+	margin-bottom: 15px;
 }
 
 .profilself img {
-	width:300px;
+	width: 230px;
+	height: auto;
 }
 
 .hidpit {display:none;}
 
 .kliknuto {background-color:#ff0000;}
+
+#odabir{
+	padding: 0px 31px;
+}
+#odabir h3{
+	text-align: center;
+	font-size: 40px;
+	font-weight: 800;
+	margin-bottom: 25px;
+}
+
+#odabir .popispro{
+	height: 480px;
+	overflow-y: scroll;
+	background: #174b84;
+	padding: 0px;
+	border: 2px solid #16304b;
+}
+
+#odabir .popispro::-webkit-scrollbar {
+    width: 10px;
+}
+#odabir .popispro::-webkit-scrollbar-track {
+    background: #144173;
+    border-radius: 0px 6px 6px 0px;
+}
+#odabir .popispro::-webkit-scrollbar-thumb {
+    border-radius: 0px 6px 6px 0px;
+    background: #0e335d; 
+}
+
+
+#odabir .popispro ul{
+	padding-left: 0px;
+	margin: 0px;
+}
+
+#odabir .popispro ul li{
+	list-style-type: none;
+	padding: 10px 25px;
+	border-bottom: 1px solid #1b4577;
+}
+
+#profil .novi, #profil .postojeci, #profil2 .novi, #profil2 .postojeci {
+	margin: 30px 5px;
+	padding: 10px;
+	font-size: 1em;
+	text-align:center;
+	display: block;
+	width: 284px;
+	margin: 7px auto;
+}
+
+.submit, .submit2, .ponovi, .odustani{
+	text-align: center;
+	background: #174b84;
+	border: 2px solid #16304b;
+	width: 310px;
+	margin: 15px auto 15px;
+}
+.submit img, .submit2 img, .ponovi img, .odustani img{
+	width: 190px;
+	height: auto;
+}
+
+.prvi{
+	padding: 15px;
+	margin: 15px 100px;
+}
+
+.selfi{
+	width: 310px;
+	height: 50px;
+	margin: 7px auto;
+	background: #174b84;
+	border: 2px solid #16304b;
+	text-align: center;
+}
+.selfi span{
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 1.2em;
+}
+.selfi img{
+	width: 30px;
+	height: auto;
+	display: inline-block;
+	vertical-align: middle;
+}
+.helper{
+	height: 100%;
+}
+.ime{
+    width: 280px;
+    height: 50px;
+    margin: 7px auto;
+    display: block;
+    background: #174b84;
+    border: 2px solid #16304b;
+    border-radius: 10px;
+    font-size: 1em;
+    color: #fff;
+    padding: 0px 15px;
+    text-align: center;
+}
+.ime::-webkit-input-placeholder {
+  color: #fff;
+}
+.ime::-moz-placeholder {
+  color: #fff;
+}
+.ime:-ms-input-placeholder {
+  color: #fff;
+}
+.ime:-moz-placeholder {
+  color: #fff;
+}
+.ime:focus{
+	outline: none;
+}
+.ime2{
+	width: 290px;
+	height: 39px;
+	margin: 7px auto;
+	background: #174b84;
+	border: 2px solid #16304b;
+	text-align: center;
+	font-size: 23px;
+	padding-top: 11px;
+	padding: 11px 10px 0px 10px;
+	overflow: hidden;
+}
+.upozorenje{
+	width: 310px;
+	margin: 0 auto;
+    -moz-animation: sakrij_upozorenje 0s ease-in 5s forwards;
+    /* Firefox */
+    -webkit-animation: sakrij_upozorenje 0s ease-in 5s forwards;
+    /* Safari and Chrome */
+    -o-animation: sakrij_upozorenje 0s ease-in 5s forwards;
+    /* Opera */
+    animation: sakrij_upozorenje 0s ease-in 5s forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+@keyframes sakrij_upozorenje {
+    to {
+        width:0;
+        height:0;
+        overflow:hidden;
+        display: none;
+    }
+}
+@-webkit-keyframes sakrij_upozorenje {
+    to {
+        width:0;
+        height:0;
+        visibility:hidden;
+        display: none;
+    }
+}
+
+#sacekivanje{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	margin-top: 14px;
+}
+#sacekivanje h3:after{
+	overflow: hidden;
+	display: inline-block;
+	vertical-align: bottom;
+	-webkit-animation: tocke steps(4,end) 900ms infinite;      
+	animation: tocke steps(4,end) 900ms infinite;
+	content: "\2026";
+	width: 0px;
+}
+#sacekivanje h3{
+	text-align: left;
+	font-size: 60px;
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translateY(-50%) translateX(-50%);
+	margin: 0px;
+	width: 494px;
+}
+@keyframes tocke {
+  to {
+    width: 1.25em;    
+  }
+}
+
+@-webkit-keyframes tocke {
+  to {
+    width: 1.25em;    
+  }
+}
+
+.odbrojavanje{
+	text-align: center;
+	opacity: 0;
+	font-size: 15px;
+	-webkit-animation: odbrojavanje ease 1s 3;      
+	animation: odbrojavanje ease 1s 3;
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translateY(40%) translateX(-50%);
+}
+
+@keyframes odbrojavanje {
+  0%{
+  	font-size: 15px;
+  	opacity: 0;
+  	margin-top: 0;
+  }
+  50%{
+  	font-size: 180px;
+  	opacity: 1;
+  	margin-top: -30%;
+  }
+  100%{
+  	font-size: 15px;
+  	opacity: 0;
+  	margin-top: 0;
+  }
+}
+
+@-webkit-keyframes odbrojavanje {
+  to {
+    opacity: 1;
+    font-size: 60px;   
+  }
+}
+
+#pitanja{
+	width: 450px;
+	margin: 0 auto;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.pitanje{
+	background: #228cc4;
+	background: -moz-radial-gradient(center, ellipse cover, #228cc4 0%, #2085ba 43%, #1f7fb2 100%);
+	background: -webkit-radial-gradient(center, ellipse cover, #228cc4 0%,#2085ba 43%,#1f7fb2 100%);
+	background: radial-gradient(ellipse at center, #228cc4 0%,#2085ba 43%,#1f7fb2 100%);
+	border: 3px solid #00bdee;
+	border-radius: 10px;
+	text-align: center;
+	padding: 25px;
+	margin-bottom: 20px;
+	font-size: 18px;
+	margin-top: 0px;
+}
+.odgovor{
+	background: #ce3c31;
+	background: -moz-linear-gradient(left, #ce3c31 0%, #de5b3a 50%, #ce3c31 100%);
+	background: -webkit-linear-gradient(left, #ce3c31 0%,#de5b3a 50%, #ce3c31 100%);
+	background: linear-gradient(to right, #ce3c31 0%,#de5b3a 50%, #ce3c31 100%);
+    border: 3px solid #dea17e;
+    border-radius: 10px;
+    text-align: center;
+    padding: 15px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+.odgovor.tocno{
+	background: #47ca2b;
+	background: -moz-linear-gradient(left, #47ca2b 0%, #73de5c 50%, #47ca2b 100%);
+	background: -webkit-linear-gradient(left, #47ca2b 0%,#73de5c 50%, #47ca2b 100%);
+	background: linear-gradient(to right, #47ca2b 0%,#73de5c 50%, #47ca2b 100%);
+	border-color: #85ec6f;
+}
+.center{
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translateY(40%) translateX(-50%);
+	width: 450px;
+}
+.odgovor.kliknuto{
+	border-color: #fdf000;
+}
+
+#konacnareza{
+	font-size: 60px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    margin-top: -23px;
+}
+.ponovi{
+	margin-top: 23px;
+}
+.ponovi, .odustani{
+	font-size: 0px;
+}
+.timer{
+	text-align: right;
+	padding-right: 20px;
+	font-size: 20px;
+	margin-bottom: 8px;
+	font-weight: 800;
+}
+.timer:before{
+	content: ':'
+}

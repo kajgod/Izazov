@@ -1,6 +1,5 @@
 /* GLOBALNE VARIJABLE */
-var korisnik, korisnici, disejbling=0;
-var pazibroj=false;
+var korisnik, korisnici, disejbling=0;;
 
 
 var socket = io(socketServer);
@@ -10,18 +9,17 @@ function onLoad() {
       document.addEventListener("deviceready", init, false);
      //init();
    }
+
 var juzersi={};
 var lista=[];
 function init() {
 	$.ajaxSetup ({
 		cache: false
 	});
-	/* Cordova funkcije */
 	AndroidFullScreen.immersiveMode(function(){
+		/*alert($(window).width()+' '+$(window).height());*/
 		}, function(){
 		});
-	window.plugins.insomnia.keepAwake();
-	/* */
 	$('img.logotip').attr('src',socketServer+'/tablet/logotip.png');
 	$.getJSON(socketServer+'/profili/index.json', function(vr){
 		$.each(vr, function(key, val){
@@ -40,13 +38,7 @@ function init() {
 
 /* helper funkcije */
 
-function restart(klasa, roditelj){
-	 var el     = roditelj.parent().children('.'+klasa),  
-     newone = el.clone(true);    
-     el.html('');     
-	 el.before(newone);        
- 	 el.remove();
-}
+
 
 
 
@@ -55,9 +47,7 @@ $(function(){
 	/* ODABIR JAVASCRIPT */
 
 	$('.novi').click(function(){
-		$('.upozorenje').html('');
 		$('#prviizbor').hide();
-		$('#odabir').hide();
 		$('#profil').show();
 		$('#profil2').hide();
 		$('input.ime').val('');
@@ -66,7 +56,6 @@ $(function(){
 	});
 
 	$('.postojeci').click(function(){
-		$('.upozorenje').html('');
 		$('#prviizbor').hide();
 		$('#profil').hide();
 		$('#profil2').hide();
@@ -101,14 +90,12 @@ $(function(){
 	$('.submit').click(function(){
 		var nick=$('.ime').val();
 		if(nick.length<3||nick.length>23){
-			$(this).parent().children('.upozorenje').html('Nadimak može imati najmanje tri (3), a najviše dvadeset (20) slova!');
-			restart('upozorenje', $(this));
+			$('.upozorenje').html('Nadimak može imati najmanje tri (3), a najviše dvadeset (20) slova!');
 		}else{
 			if(typeof(juzersi[nick])=='undefined'){
 				igracspreman(korisnik, nick, igrac);
 			}else{
-				$(this).parent().children('.upozorenje').html('Nadimak je već korišten. Dodajte neki znak (npr. godinu rođenja) ili odaberite drugi profil, ako je to Vaš nadimak od ranije.');
-				restart('upozorenje', $(this));
+				$('.upozorenje').html('Nadimak je već korišten. Dodajte neki znak (npr. godinu rođenja) ili odaberite drugi profil, ako je to Vaš nadimak od ranije.');
 			}
 			
 		}
@@ -133,12 +120,12 @@ $(function(){
 
 	/* POSTOJEĆI KORISNIK */
 
-	$('.popispro').on('click', 'li', function(){
-		dejta=$(this).html();
+	$('.popispro').on('click', function(data){
+		console.log(juzersi[''+data.target.innerText]);
 		$('#odabir').hide();
 		$('#profil2').show();
-		$('.ime2').html(dejta);
-		korisnik=juzersi[''+dejta];
+		$('.ime2').html(data.target.innerText);
+		korisnik=juzersi[''+data.target.innerText];
 		$.get(socketServer+'/profili/i'+korisnik+'.png')
 		    .done(function() { 
 		        $('.profilself').html('<img src="'+socketServer+'/profili/i'+korisnik+'.png">');       
@@ -152,11 +139,9 @@ $(function(){
 
 
 	/*PITANJA ODGOVORI*/
+
 	$('.odgovor').click(function(){
-		if(!pazibroj){
-			$(this).addClass('kliknuto');
-			pazibroj=true;
-		}
+		$(this).addClass('kliknuto');
 		if(disejbling==0){
 			disejbling=1;
 			switch($(this).data('val')) {
@@ -228,18 +213,9 @@ socket.on('pobjednik',function(msg){
 	$('#konacnareza').show();
 });
 
-socket.on('sekundet', function(msg){
-	if(msg<=1)setTimeout(function(){
-		$('.hidpit').hide();
-		$('.timer').html('30');
-	}, 300);
-	$('.timer').html(''+(-1+msg));
-});
-
 
 /* funkcije */
-function promijenipitanje(objektiv){	
-	pazibroj=false;
+function promijenipitanje(objektiv){
 	var pit=objektiv.pitanje, od1=objektiv.odg1, od2=objektiv.odg2, od3=objektiv.odg3, od4=objektiv.odg4;
 	/*exportRoot.pitanje.brojpitanja.text=br+'. pitanje';*/
 	$('.pitanje').html(pit);
@@ -253,7 +229,6 @@ function promijenipitanje(objektiv){
 	disejbling=0;
 	/*exportRoot.pitanje.gotoAndPlay(1);
 	aktualnoPitanje++;*/
-
 }
 
 function odgovaram(x){
@@ -263,5 +238,12 @@ function odgovaram(x){
 /* RESET JAVASCRIPT */
 
 function resetall(){
+	/*$('.profil').hide();
+	$('.ime').val('');
+	$('.profilself').html('');
+	$.getJSON( socketServer+"profili/index.json", function( data ) {
+	  $('body').append(data);
+	  korisnici=data;
+	});*/
 	location.reload();
 }
