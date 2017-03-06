@@ -133,7 +133,7 @@ div {
 	font-size: 1em;
 	text-align:center;
 	display: block;
-	width: 424px;
+	width: 284px;
 	margin: 7px auto;
 }
 
@@ -141,7 +141,7 @@ div {
 	text-align: center;
 	background: #174b84;
 	border: 2px solid #16304b;
-	width: 450px;
+	width: 310px;
 	margin: 15px auto 15px;
 }
 .submit img, .submit2 img, .ponovi img, .odustani img{
@@ -155,7 +155,7 @@ div {
 }
 
 .selfi{
-	width: 450px;
+	width: 310px;
 	height: 50px;
 	margin: 7px auto;
 	background: #174b84;
@@ -177,7 +177,7 @@ div {
 	height: 100%;
 }
 .ime{
-    width: 420px;
+    width: 280px;
     height: 50px;
     margin: 7px auto;
     display: block;
@@ -205,7 +205,7 @@ div {
 	outline: none;
 }
 .ime2{
-	width: 430px;
+	width: 290px;
 	height: 39px;
 	margin: 7px auto;
 	background: #174b84;
@@ -265,8 +265,9 @@ div {
 	text-align: left;
 	font-size: 60px;
 	position: relative;
-	top: 436px;
-    left: 60px;
+	top: 50%;
+	left: 50%;
+	transform: translateY(-50%) translateX(-50%);
 	margin: 0px;
 	width: 494px;
 }
@@ -284,12 +285,39 @@ div {
 
 .odbrojavanje{
 	text-align: center;
-	opacity: 1;
-	font-size: 180px;
-	position: absolute;
-	top: 370px;
-	left: 245px;
-	color: #fff;
+	opacity: 0;
+	font-size: 15px;
+	-webkit-animation: odbrojavanje ease 1s 3;      
+	animation: odbrojavanje ease 1s 3;
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translateY(40%) translateX(-50%);
+}
+
+@keyframes odbrojavanje {
+  0%{
+  	font-size: 15px;
+  	opacity: 0;
+  	margin-top: 0;
+  }
+  50%{
+  	font-size: 180px;
+  	opacity: 1;
+  	margin-top: -30%;
+  }
+  100%{
+  	font-size: 15px;
+  	opacity: 0;
+  	margin-top: 0;
+  }
+}
+
+@-webkit-keyframes odbrojavanje {
+  to {
+    opacity: 1;
+    font-size: 60px;   
+  }
 }
 
 #pitanja{
@@ -334,21 +362,22 @@ div {
 }
 .center{
 	position: relative;
-	top: 120px;
-	left: 78px;
+	top: 50%;
+	left: 50%;
+	transform: translateY(40%) translateX(-50%);
 	width: 450px;
 }
 .odgovor.kliknuto{
 	border-color: #fdf000;
 }
+
 #konacnareza{
 	font-size: 60px;
-	position: relative;
-	top: 319px;
-	text-align: center;
-}
-#konacnareza h3{
-	top: 150px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    margin-top: -23px;
 }
 .ponovi{
 	margin-top: 23px;
