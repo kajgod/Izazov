@@ -218,14 +218,18 @@ socket.on('odbrojavanjetablet', function(msg){
 
 socket.on('pobjednik',function(msg){
 	//igrac:igg, nick:ime[igg]
+	var tajmer=1000;
 	if(msg.igrac==0){
+		tajmer=3000;
 	}else if(msg.igrac==igrac){
 		$('#konacnareza').html('<h3>Čestitamo na pobjedi!</h3>');
 	}else{
 		$('#konacnareza').html('<h3>Više sreće sljedeći put!</h3>');
 	}
 	$('#pitanja').hide();
-	$('#konacnareza').show();
+	setTimeout(function(){
+		$('#konacnareza').show();
+	},tajmer);
 });
 
 socket.on('sekundet', function(msg){
