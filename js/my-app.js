@@ -236,6 +236,10 @@ socket.on('sekundet', function(msg){
 	$('.timer').html(''+(-1+msg));
 });
 
+socket.on('revansserver', function(msg){
+	$('#konacnareza').hide();
+});
+
 
 /* funkcije */
 function promijenipitanje(objektiv){	
